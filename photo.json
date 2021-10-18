@@ -1,0 +1,139 @@
+{
+  "_embedded": {
+    "items": [
+      {
+        "path": "disk:/netology/photo/10",
+        "size": 125390,
+        "name": "10",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:45+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/14",
+        "size": 126624,
+        "name": "14",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:48+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/14_1529656806",
+        "size": 394391,
+        "name": "14_1529656806",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:06:20+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/14_1534672859",
+        "size": 327953,
+        "name": "14_1534672859",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:51+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/14_1585037271",
+        "size": 235908,
+        "name": "14_1585037271",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:51+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/15",
+        "size": 342748,
+        "name": "15",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:50+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/15_1560671311",
+        "size": 306754,
+        "name": "15_1560671311",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:51+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/21",
+        "size": 165374,
+        "name": "21",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:46+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/21_1588952452",
+        "size": 194992,
+        "name": "21_1588952452",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:54+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/23",
+        "size": 159005,
+        "name": "23",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:47+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/23_1456339750",
+        "size": 123315,
+        "name": "23_1456339750",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:47+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/26",
+        "size": 244071,
+        "name": "26",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:52+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/26_1606472698",
+        "size": 316853,
+        "name": "26_1606472698",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:55+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/30",
+        "size": 256184,
+        "name": "30",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:44+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/32",
+        "size": 329124,
+        "name": "32",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:44+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/4",
+        "size": 349650,
+        "name": "4",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:51+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/40",
+        "size": 276694,
+        "name": "40",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:45+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/64",
+        "size": 286652,
+        "name": "64",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:48+00:00"
+      },
+      {
+        "path": "disk:/netology/photo/7",
+        "size": 264574,
+        "name": "7",
+        "mime_type": "image/jpeg",
+        "modified": "2021-10-18T13:05:46+00:00"
+      }
+    ]
+  }
+}
