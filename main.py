@@ -74,12 +74,19 @@ class YaUploader():
             url = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
             response = requests.post(url=url, params=upload_params, headers=headers)
 
+    def set_layer():
+        url = 'https://cloud-api.yandex.net/v1/disk/resources'
+        path = 'netology/photo'
+        headers = get_headers(token)
+        params = {'path': path, 'token': token}
+        response = requests.put(url=url, headers=headers, params=params)
 
 
 if __name__ == '__main__':
     file_path = 'netology/photo'
     token = ''
     VkUser.get_user_photo()
+    YaUploader.set_layer()
     uploader = YaUploader(token)
     uploader.upload_file_to_disk(file_path)
 
