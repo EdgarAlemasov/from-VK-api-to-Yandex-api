@@ -9,19 +9,19 @@ photo = {}
 
 
 # ПОЛУЧЕНИЕ ФОТО ИЗ ВК И СОХРАНЕНИЕ ИХ В СЛОВАРЬ
-class VkUser():
+class VkUser:
+    def __init__(self, vk_token):
+        self.vk_token = vk_token
 
-    def id_user():
+    def id_user(self, vk_token):
         url = 'https://api.vk.com/method/users.get'
-        token = ''
-        params = {'access_token': token, 'v': '5.131'}
+        params = {'access_token': vk_token, 'v': '5.131'}
         response = requests.get(url=url, params=params)
         pprint(response.json())
 
-    def get_user_photo():
+    def get_user_photo(self):
         url = 'https://api.vk.com/method/photos.get'
-        token = ''
-        params = {'owner_id': 17181069, 'album_id': 'profile', 'photo_sizes': 1, 'access_token': token, 'v': '5.131',
+        params = {'owner_id': 17181069, 'album_id': 'profile', 'photo_sizes': 1, 'access_token': vk_token, 'v': '5.131',
                   'extended': 1}
         response = requests.get(url=url, params=params)
         if response.status_code == 200:
@@ -42,15 +42,14 @@ class VkUser():
 
 
 # ЗАГРУЗКА ФОТО ИЗ СЛОВАРЯ НА ЯДИСК ЧЕРЕЗ URL
-class YaUploader():
-
-    def __init__(self, token):
-        self.token = token
+class YaUploader:
+    def __init__(self, ya_token):
+        self.ya_token = ya_token
 
     def get_headers(self):
         return {
             'Content-Type': 'application/json',
-            'Authorization': 'OAuth {}'.format(self.token)
+            'Authorization': 'OAuth {}'.format(self.ya_token)
         }
 
     def _get_upload_link(self, file_path):
@@ -74,45 +73,32 @@ class YaUploader():
             url = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
             response = requests.post(url=url, params=upload_params, headers=headers)
 
-    def set_layer():
+    def set_layer(self):
         url = 'https://cloud-api.yandex.net/v1/disk/resources'
-        path = 'netology/photo'
-        headers = get_headers(token)
-        params = {'path': path, 'token': token}
+        path = 'netology/vk_photo'
+        headers = self.get_headers()
+        params = {'path': path, 'token': ya_token}
         response = requests.put(url=url, headers=headers, params=params)
+
+    def ya_metadata(self):
+        path = '/netology/vk_photo/'
+        url = f'https://cloud-api.yandex.net/v1/disk/resources'
+        headers = self.get_headers()
+        params = {'path': path, 'token': ya_token,
+                  'fields': '_embedded.items.name,_embedded.items.size,_embedded.items.modified,'
+                            '_embedded.items.mime_type,_embedded.items.path'}
+        response = requests.get(url=url, headers=headers, params=params)
+        return response.json()
 
 
 if __name__ == '__main__':
-    file_path = 'netology/photo'
-    token = ''
-    VkUser.get_user_photo()
-    YaUploader.set_layer()
-    uploader = YaUploader(token)
+    file_path = 'netology/vk_photo'
+    ya_token = ''
+    vk_token = ''
+    VkUser(vk_token=vk_token).get_user_photo()
+    uploader = YaUploader(ya_token)
+    uploader.set_layer()
     uploader.upload_file_to_disk(file_path)
-
-
-# ПОЛУЧЕНИЕ ДАННЫХ С ЯДИСКА О ЗАГРУЖЕННЫХ ФОТО
-token = ''
-
-
-def get_headers(token):
-    return {
-        'Content-Type': 'application/json',
-        'Authorization': 'OAuth {}'.format(token)
-    }
-
-
-def ya_metadata():
-    path = '/netology/photo/'
-    url = f'https://cloud-api.yandex.net/v1/disk/resources'
-    headers = get_headers(token)
-    params = {'path': path, 'token': token,
-              'fields': '_embedded.items.name,_embedded.items.size,_embedded.items.modified,'
-                        '_embedded.items.mime_type,_embedded.items.path'}
-    response = requests.get(url=url, headers=headers, params=params)
-    return response.json()
-
-
-# ЗАПИСЬ ПОЛУЧЕННЫХ ДАННЫХ В ФАЙЛ JSON
-with open('photo.json', 'w') as file:
-    json.dump(ya_metadata(), file, ensure_ascii=False, indent=2)
+    # ЗАПИСЬ ПОЛУЧЕННЫХ ДАННЫХ В ФАЙЛ JSON
+    with open('photo.json', 'w') as file:
+        json.dump(uploader.ya_metadata(), file, ensure_ascii=False, indent=2)
